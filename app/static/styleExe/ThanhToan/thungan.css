@@ -1,0 +1,35 @@
+body{
+    background-color: #eeeeee;
+}
+.thuNgan{
+    background-color: #eeeeee;
+    font-size: 1.5rem;
+    padding-top: 100px;
+}
+div.billInput{
+    text-align: center;
+    font-size: 2rem;!important;
+}
+.idSearchBtn{
+    background-color: #0dcaf0;
+  border: none;
+  color: white;
+    padding: 10pt;
+  text-decoration: none;
+  /*margin: auto;*/
+  cursor: pointer;
+    border-radius: 7px;
+    font-size: 1.5rem;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    /*font-size: 5px;*/
+}

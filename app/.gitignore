@@ -1,0 +1,4 @@
+# Ignore environment variable file
+.env
+AirflowDocker/docker-compose.yaml
+

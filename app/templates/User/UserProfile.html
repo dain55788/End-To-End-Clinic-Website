@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Người Dùng</title>
+    <link rel="stylesheet" href="static/styleExe/User/userprofile.css">
+    <link rel="shortcut icon" type="image/png" sizes="32x32"
+          href="{{ url_for('static', filename= 'images/clinic.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container light-style flex-grow-1 container-p-y">
+    <label class="greeting">
+        Chào {{ current_user.username }}
+        (
+        {% if current_user.is_nurse() %}
+        NURSE
+        {% elif current_user.is_doctor() %}
+        DOCTOR
+        {% elif current_user.is_admin() %}
+        ADMIN
+        {% elif current_user.is_user() %}
+        USER
+        {% endif %}
+        )
+    </label>
+    <h4 class="font-weight-bold py-4 mb-3">
+        Thiết Lập Thông Tin Tài Khoản
+    </h4>
+    <div class="card overflow-hidden">
+        <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+                <div class="list-group list-group-flush account-settings-links">
+                    <a class="list-group-item list-group-item-action active" data-toggle="list"
+                       href="#account-general">Thông Tin Chung</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-change-password">Đổi Mật Khẩu</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-info">Thông Tin Khác</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-social-links">Mạng Xã Hội</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-notifications">Thông Báo</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-arrangements">Thông Tin Lịch Khám</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="account-general">
+                        <hr class="border-light m-0">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Tên Tài Khoản</label>
+                                <input type="text" class="form-control mb-1" value=" {{ current_user.username }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Tên</label>
+                                <input type="text" class="form-control" value=" {{ current_user.name }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control mb-1" value=" {{ current_user.phone }}">
+                                <div class="alert alert-warning mt-3">
+                                    Số điện thoại của bạn chưa được xác thực. Bấm vào để xác thực ngay!!<br>
+                                    <a href="javascript:void(0)">Gửi lại xác thực</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-change-password">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Mật khẩu hiện tại*</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Mật khẩu mới*</label>
+                                <input type="password" class="form-control" id="newpw" name="newpw">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Xác nhận mật khẩu mới*</label>
+                                <input type="password" class="form-control" id="confirm" name="confirm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-info">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-control"
+                                          rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ngày Sinh</label>
+                                <input type="text" class="form-control" value="May 3, 1995">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Đất Nước</label>
+                                <select class="custom-select">
+                                    <option>USA</option>
+                                    <option selected>Canada</option>
+                                    <option>UK</option>
+                                    <option>Germany</option>
+                                    <option>France</option>
+                                    <option>Vietnam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr class="border-light m-0">
+                        <div class="card-body pb-2">
+                            <h6 class="mb-4">Thông tin liên lạc</h6>
+                            <div class="form-group">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" value="+0 (123) 456 7891">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Website</label>
+                                <input type="text" class="form-control" value>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-social-links">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Twitter</label>
+                                <input type="text" class="form-control" value="https://twitter.com/user">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Facebook</label>
+                                <input type="text" class="form-control" value="https://www.facebook.com/user">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Google+</label>
+                                <input type="text" class="form-control" value>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">LinkedIn</label>
+                                <input type="text" class="form-control" value>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Instagram</label>
+                                <input type="text" class="form-control" value="https://www.instagram.com/user">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-notifications">
+                        <div class="card-body pb-2">
+                            <h6 class="mb-4">Activity</h6>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked>
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">Email me when someone comments on my article</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked>
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">Email me when someone answers on my forum
+                                            thread</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input">
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">Email me when someone follows me</span>
+                                </label>
+                            </div>
+                        </div>
+                        <hr class="border-light m-0">
+                        <div class="card-body pb-2">
+                            <h6 class="mb-4">Application</h6>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked>
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">News and announcements</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input">
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">Weekly product updates</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked>
+                                    <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                    <span class="switcher-label">Weekly blog digest</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-arrangements">
+                        <div class="card-body">
+                            <h6 class="mb-4">Danh Sách Lịch Khám</h6>
+                            <div class="table-responsive">
+                                {% if user_arrangements %}
+                                <table class="table table-bordered">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Patient Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Appointment Date</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for arr in user_arrangements %}
+                                    <tr>
+                                        <td> {{ arr.patient_name }}</td>
+                                        <td> {{ arr.email }}</td>
+                                        <td> {{ arr.gender }}</td>
+                                        <td> {{ arr.address }}</td>
+                                        <td> {{ arr.appointment_date }}</td>
+                                        <td> {{ arr.description }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="text-right mt-3">
+        <button type="button" class="btn btn-primary">Lưu Những Thay Đổi</button>&nbsp;
+        <button type="button" class="btn btn-default">Bỏ</button>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+    "sum_number_of_arrangements": 7,
+    "arrangements": [
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "dain55788@gmail.com",
+            "gender": "male",
+            "patient_name": "Nguyen Dai Cashier",
+            "phone": "0903021747"
+        },
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "2251052010dai@ou.edu.vn",
+            "gender": "male",
+            "patient_name": "Nguyen Dai User",
+            "phone": "0903021731"
+        },
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "dain55788@gmail.com",
+            "gender": "female",
+            "patient_name": "Nguyen Dai User2 ",
+            "phone": "0903021731"
+        },
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "techreviewandtutorial@gmail.com",
+            "gender": "male",
+            "patient_name": "Chiếc Khăn Gió Ấm",
+            "phone": "0903021731"
+        },
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "hunghuongminhdai@gmail.com",
+            "gender": "male",
+            "patient_name": "Em đừng đi",
+            "phone": "0903021731"
+        },
+        {
+            "address": "r344r3r",
+            "appointment_date": "2024-12-27",
+            "email": "dain55788@gmail.com",
+            "gender": "male",
+            "patient_name": "Dainy Doctor 1",
+            "phone": "0903021745"
+        },
+        {
+            "address": "trg ddh MO",
+            "appointment_date": "2024-12-27",
+            "email": "2251052010dai@ou.edu.vn",
+            "gender": "male",
+            "patient_name": "Dainy Nurse",
+            "phone": "0939118568"
+        }
+    ]
+}

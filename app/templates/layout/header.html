@@ -1,0 +1,44 @@
+{% block header%}
+<a href="/">
+    <img class="logo" src="static/images/logo.png" alt="Logo Phòng Khám">
+</a>
+
+<!-- navbar link  -->
+<nav class="navbar">
+    <ul>
+        <li><a href="/">Trang Chủ</a></li>
+        <li><a href="#about">Về Chúng Tôi</a></li>
+        <li><a href="#doctor">Các Chuyên Gia</a></li>
+        <li><a href="#review">Nhận Xét</a></li>
+        <li><a href="#contact">Liên Hệ Chúng Tôi</a></li>
+        <li><a href="#blog">Bài Viết</a></li>
+        {% if current_user.is_authenticated %}  <!--check if the current user is nurse-->
+            {% if current_user.is_nurse() %}
+            <li><a target="_blank" href="/lap_danh_sach" class="btn">Lập Danh Sách Khám</a></li>
+            {% endif %}
+        {% endif %}
+        {% if current_user.is_authenticated %} <!--check if the current user is doctor-->
+            {% if current_user.is_doctor() %}
+            <li><a target="_blank" href="/phieukham" class="btn">Lập Phiếu Khám</a></li>
+            {% endif %}
+        {% endif %}
+        {% if current_user.is_authenticated %} <!--check if the current user is doctor-->
+            {% if current_user.is_admin() %}
+            <li><a target="_blank" href="/admin" class="btn">Quản Trị</a></li>
+            {% endif %}
+        {% endif %}
+        {% if current_user.is_authenticated %} <!--check if the current user is doctor-->
+            {% if current_user.is_cashier() %}
+            <li><a target="_blank" href="/thanh_toan" class="btn">Thanh Toán Hóa Đơn</a></li>
+            {% endif %}
+        {% endif %}
+        {% if current_user.is_authenticated %}
+        <li><a target="_blank" href="/user-profile" class="btn">Chào {{ current_user.username }}.</a></li>
+        <li><a class="nav-link text-success" href="/logout">Đăng xuất</a></li>
+        {% else %}
+        <li><a target="_blank" href="/login" class="btn">Đăng Nhập</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<div class="fas fa-bars"></div>
+{% endblock %}

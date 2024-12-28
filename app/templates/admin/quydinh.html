@@ -1,0 +1,38 @@
+
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename= 'styleExe/quydinh.css') }}">
+
+<h1>Các Quy Định</h1>
+<form method="post" action="/update">
+    {% for qd in quydinh %}
+    <div class="row">
+        <div class="col">
+            <h2>{{ qd.MoTa }}: </h2>
+        </div>
+        {% if qd.id==1 %}
+        <label class="ipNum col">{{ qd.GiaTri }}</label>
+        <input type="number" class="ipNum col ml-3" id="ipBenhNhanMoi" name="ipBenhNhanMoi"
+               placeholder="Nhập số lượng bệnh nhân mới"
+               min="0" max="1000000">
+        {% endif %}
+        {% if qd.id==2 %}
+        <label class="ipNum col">{{ "{:,.0f}".format(qd.GiaTri) }} VNĐ</label>
+        <input type="number" class="ipNum col ml-3" id="ipTienMoi" name="ipTienMoi" placeholder="Nhập số tiền khám mới"
+               min="0"
+               max="100000000">
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-around">
+        <button class="btn btnQuyDinh" type="submit" value="updateSoLuong" name="btnCnBenhNhan">
+            Cập Nhật Số Bệnh Nhân
+        </button>
+        <button class="btn btnQuyDinh" type="submit" value="updateTien" name="btnCnTienKham">
+            Cập Nhật Số Tiền Khám
+        </button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<link rel="stylesheet" href="static/styleExe/LapDanhSach/lapdanhsach.css">
+<div class="container">
+    <!-- Header Section -->
+    <h1>LẬP DANH SÁCH KHÁM</h1>
+
+    <!-- Date Selection Section -->
+    <form method="POST">
+        <div class="date-section">
+            <label for="date">Ngày:</label>
+            <input type="date" id="date" name="date" required value="{{ appointment_date }}">
+            <button type="submit" name="viewBtn" id="viewBtn">Xem</button>
+        </div>
+    </form>
+
+    <!-- Danh Sách Khám Table -->
+    <div class="list-section">
+        <h3>Danh Sách Khám <input type="text" readonly value="{{ appointment_date }}"></h3>
+        {% if arr_msg %}
+        <label class="successful_attention">{{ arr_msg }}</label>
+        {% endif %}
+        {% if matched_arrangements %}
+        <table>
+            <thead>
+            <tr>
+                <th>Mã Lịch Khám</th>
+                <th>Họ Tên</th>
+                <th>Giới Tính</th>
+                <th>Số Điện Thoại</th>
+                <th>Địa Chỉ</th>
+                <th>Tình Trạng</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for arr in matched_arrangements %}
+            <tr>
+                <td> {{ arr.id_arrangement }}</td>
+                <td> {{ arr.patient_name }}</td>
+                <td> {{ arr.gender }}</td>
+                <td> {{ arr.phone }}</td>
+                <td> {{ arr.address }}</td>
+                <td>Đã Ghi Nhận Thông Tin</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+    {% if err_message %}
+    <label class="attention">{{ err_message }}</label>
+    {% endif %}
+    {% if success_message %}
+    <label class="successful_attention">{{ success_message }}</label>
+    {% endif %}
+    <form id="saveForm" method="POST" action="/save_arrangements" onsubmit="return false;">
+        <button name="generateBtn" class="final-btn">Lập Danh Sách Khám</button>
+    </form>
+    <form method="GET" action="/download_pdf" style="display: none;" id="pdfForm">
+        <button type="submit" class="final-btn" style="background-color: #4CAF50;">
+            Tạo Danh Sách Khám (PDF)
+        </button>
+    </form>
+    <script src="{{ url_for('static', filename='scriptExe/LapDanhSach.js') }}"></script>
+
+    <!-- jquery cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</div>
+{% endblock %}

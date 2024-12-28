@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng Mạch Tư BeSTRONG - Tận tâm chăm sóc</title>
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename= 'images/clinic.png') }}">
+    <meta name = "description" content="BeSTRONG - Tận tâm chăm sóc">
+    <meta name = "keywords" content="phòng bệnh, phòng mạch, phòng mạch tư, phòng khám, private clinic, clinic">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/styleExe/MainStyle/mainStyle.css">
+</head>
+
+<body>
+    <a class="top" href="#"></a>
+    <header>
+        {% block header %}
+        {% include 'layout/header.html' %}
+        {% endblock %}
+    </header>
+    <section>
+        {% block content required %}
+        {% endblock %}
+    </section>
+    <footer class="footer">
+        {% block footer %}
+        {% include 'layout/footer.html' %}
+        {% endblock %}
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jquery cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='scriptExe/mainScript.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="static/styleExe/ThanhToan/chitiethoadon.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{{ url_for('static', filename='scriptExe/payment.js') }}" defer></script>
+<div class="container-fluid mt-100 mb-100 billDetail">
+    <div id="ui-view">
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    Mã Hóa Đơn:<strong>{{mahoadon}}</strong><!-- Nhap ma hoa don vao day-->
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="center">#</th>
+                                <th>Thuốc</th>
+                                <th>Đơn vị</th>
+                                <th class="center">Số Lượng</th>
+                                <th class="right">Giá</th>
+                                <th class="right">Tổng</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% if thuocs %}
+                            {% for t in thuocs %}
+                            <tr>
+                                <td class="center">{{ loop.index }}</td>
+                                <td class="left">{{ t[0] }}</td>
+                                <td class="left">{{ t[1] }}</td>
+                                <td class="center">{{ t[2] }}</td>
+                                <td class="right">{{ '{:,.0f}'.format(t[-2]) }} VNĐ</td>
+                                <td class="right">{{ '{:,.0f}'.format(t[-1]) }} VNĐ</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-5 ml-auto">
+                            <table class="table table-clear">
+                                <tbody>
+                                <tr>
+                                    <td class="left"><strong>Tiền Thuốc</strong></td>
+                                    <td class="right">{{'{:,.0f}'.format(sum)}} VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td class="left"><strong>Tiền Khám</strong></td>
+                                    <td class="right">{{ '{:,.0f}'.format(tienkham) }} VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td class="left"><strong>Tổng</strong></td>
+                                    <td class="right"><strong>{{ '{:,.0f}'.format(sum+tienkham) }} VNĐ</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="pull-right">
+                                {% if tinhtrangthanhtoan %}
+                                <h5 class="alert alert-info text-center">Đã Thanh Toán</h5>
+                                {% else %}
+                                <button class="btn-success pay-btn p-sm-2" type="button" id="submit">Thanh Toán</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

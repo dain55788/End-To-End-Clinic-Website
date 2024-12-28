@@ -1,0 +1,24 @@
+.home {
+    font-size: 16px;
+
+}
+
+.ipText {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin: 1rem;
+}
+
+.list-group-item {
+    border-top: none;
+    border-bottom: none;
+}
+ul :last-child{
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+ul:first-child{
+    border-top: 1px solid rgba(0, 0, 0, .125);;
+}

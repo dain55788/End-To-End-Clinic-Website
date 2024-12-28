@@ -1,0 +1,76 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<!-- To TOP Button-->
+<a class="top" href="#"></a>
+
+<!-- To TOP Button -->
+<a class="top" href="#"></a>
+
+<!-- Arrangement section here -->
+<!-- contact section start  -->
+
+<section id="contact" class="contact">
+
+    <h1 class="heading">Đặt Lịch Khám với BeSTRONG</h1>
+    <h3 class="title"><3 đặt lịch khám với BeSTRONG bất cứ lúc nào và bất kì nơi đâu <3</h3>
+    <form method="post" action="/dangKyLich" enctype="multipart/form-data">
+        <div class="row">
+
+            <!-- form images  -->
+            <div class="images">
+                <img src="static/images/form-booking.png" alt="">
+            </div>
+
+            <div class="form-container">
+                {% if sc_msg %}
+                <label class="successful_attention">{{ sc_msg }} </label>
+                {% endif %}
+                <label for="phone">Số điện thoại:*</label>
+                <input type="number" placeholder="{{ current_user.phone }}" name="phone" id="phone" readonly>
+                <label for="fullName">Họ và Tên:*</label>
+                <input type="text" placeholder="Nguyễn Văn A" name="name" id="name">
+                <label for="email">Email:*</label>
+                <input type="email" placeholder="email" name="email" id="email">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gender">Giới Tính:*</label>
+                        <select id="gender" name="gender">
+                            <option value="" disabled selected>Giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Chọn Lịch Khám:*</label>
+                        <input type="date" id="appointment_date" name="appointment_date">
+                    </div>
+                </div>
+                {% if result_msg %}
+                <label class="attention">{{ result_msg }} </label>
+                {% endif %}
+                {% if err_msg %}
+                <label class="attention">{{ err_msg }} </label>
+                {% endif %}
+                <label for="address">Địa chỉ:</label>
+                <input type="text" placeholder="Địa chỉ" name="address" id="address">
+                <textarea cols="30" rows="10" id="description" name="description"
+                          placeholder="Bệnh nhân ghi chú tại đây (Tình trạng đang gặp phải mô tả về bệnh, ...)"></textarea>
+                <button class="btn">Gửi</button>
+            </div>
+        </div>
+    </form>
+
+</section>
+
+
+<!-- contact section end  -->
+<!-- Arrangement section ends -->
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="static/scriptExe/mainScript.js"></script>
+{% endblock %}

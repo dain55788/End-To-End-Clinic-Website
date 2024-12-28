@@ -1,0 +1,75 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/styleExe/MainStyle/mainStyle.css">
+<link rel="stylesheet" href="static/styleExe/ThanhToan/thungan.css">
+<section id="thuNgan" class="thuNgan mt-5">
+    <div class="container-lg p-5">
+        <form>
+            <div class="row billInput mb-3">
+                <div class="col">
+                    <label for="billID">Tìm kiếm hóa đơn:</label>
+                    <input type="text" id="billID" name="billID" class="border" placeholder="Tìm kiếm">
+                </div>
+                <div class="col">
+                    <label for="billDate">Nhập ngày: </label>
+                    <input type="date" id="billDate" name="billDate" class="border">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center mb-3">
+                    <label></label>
+                    <input type="submit" value="Tìm Kiếm" class="idSearchBtn">
+                </div>
+            </div>
+
+
+        </form>
+        <div class="row">
+            <div class="table-responsive-lg">
+                <table class="table align-items-center table-striped table-bordered border-dark table-hover">
+                    <thead class="thead-light text-center">
+                    <tr>
+                        <th scope="col">Mã hóa đơn</th>
+                        <th scope="col">Họ Tên</th>
+                        <th scope="col">Ngày Khám</th>
+                        <th scope="col">Tiền Khám</th>
+                        <th scope="col">Tiền Thuốc</th>
+                        <th scope="col">Tổng Tiền</th>
+                        <th scope="col">Tình trạng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for b in bills %}
+                    <tr class="text-center">
+                        <th scope="row">{{ b[0] }}</th>
+                        <td>Dũng</td>
+                        <td>{{ b[1].strftime('%Y-%m-%d') }}</td>
+                        <td>{{ '{:,.0f}'.format(tienkham) }} VNĐ</td>
+                        <td>{{ '{:,.0f}'.format(b[2]) }} VNĐ</td>
+                        <td>{{ '{:,.0f}'.format(b[2]+tienkham) }} VNĐ</td>
+                        {% if b[3] == 0 %}
+                        <td>
+                            <a class=" bg-transparent text-danger" href='/thanh_toan/{{ b.ID }}'>Thanh Toán</a>
+                        </td>
+                        {% else %}
+                        <td>
+                            <a class=" bg-transparent text-secondary" href='/thanh_toan/{{ b.ID }}'>Đã thanh Toán</a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

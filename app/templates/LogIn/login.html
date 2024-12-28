@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="static/images/clinic.png">
+    <link rel="stylesheet" href="static/styleExe/LoginRegister/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="form-container sign-in-container">
+        <form method="post" action="/login">
+            <h1>Đăng Nhập</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+            <span>hoặc sử dụng tài khoản</span>
+            <input type="text" placeholder="Số Điện Thoại (+84)" id="phone" name="phone"/>
+            <input type="password" placeholder="Mật Khẩu" id="password" name="password"/>
+            {% if err_msg1 %}
+            <label class="attention">{{ err_msg1 }}</label>
+            {% endif %}
+            {% if err_msg %}
+            <label class="attention">{{ err_msg }}</label>
+            {% endif %}
+            <a href="#" id="login_btn">Quên mật khẩu?</a>
+            <button>Đăng Nhập</button>
+            <p>Chưa có tài khoản? <a href="/register"
+                                     style="color: #2ba0ff; text-decoration: underline; font-weight: bold;">Đăng ký
+                ngay</a></p>
+        </form>
+    </div>
+</div>
+
+
+<footer>
+    <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_self" href="/">Be<span>Strong</span></a>
+    </p>
+</footer>
+
+<script src="static/scriptExe/login.js"></script>
+</body>
+</html>

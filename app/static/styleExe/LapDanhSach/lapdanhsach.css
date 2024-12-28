@@ -1,0 +1,219 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page container */
+.container {
+    width: 100%;
+    margin: 20px auto;
+    max-width: 1200px;
+    flex-direction: column; /* Align children in a column */
+    justify-content: center; /* Vertically center the children */
+    align-items: center; /* Horizontally center the children */
+    padding: 8rem 0;
+}
+.list-section h3 {
+    color: #1EA9DC;
+    font-size: 2rem;
+    margin: 15px 0;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between text and input */
+}
+
+.list-section input {
+    padding: 5px;
+    font-size: 20px;
+    width: 10%;
+}
+
+.container h1,
+.container h3 {
+    color: #1EA9DC;
+    margin: 25px 0;
+    padding: 0 10px;
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Date input and button section */
+.date-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.date-section label {
+    font-size: 20px;
+}
+
+.date-section input {
+    padding: 5px;
+    font-size: 20px;
+    align-items: left;
+}
+
+.date-section button {
+    padding: 8px 15px;
+    font-size: 2rem;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #1EA9DC;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 10%;
+    height: 100%;
+}
+
+/* Tables styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+table th {
+    background-color: #1EA9DC;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    border: .1rem solid var(--blue);
+    background: var(--wight);
+    color: var(--blue);
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* Buttons */
+button {
+    padding: 8px 15px;
+    font-size: 2rem;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #1EA9DC;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 10%;
+    height: 100%;
+}
+
+button:hover {
+    border: .1rem solid var(--blue);
+    background: var(--wight);
+    color: var(--blue);
+}
+
+/* Lịch Khám and Search Section (align them on the same line) */
+.schedule-section h3 {
+    color: #1EA9DC;
+    font-size: 2rem;
+    margin: 15px 0;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between text and input */
+}
+
+/* Search bar styling */
+.search {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.search lable,
+.search input,
+.search h3 {
+    display: flex;
+}
+
+.search label {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.search input {
+    padding: 5px;
+    font-size: 20px;
+    width: 200px;
+}
+
+/* Section headers */
+.container h1 {
+    color: #1EA9DC;
+    font-size: 3rem;
+    margin: 15px 0;
+}
+
+.container h3 {
+    color: #1EA9DC;
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+/* Footer button */
+.final-btn {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #1EA9DC;
+    color: #fff;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.final-btn:hover {
+    border: .1rem solid var(--blue);
+    background: var(--wight);
+    color: var(--blue);
+}
+
+// Label for messaging
+label.attention {
+    background-color: #d4edda;
+    color: weight;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    justify-items: center;
+    align-self: flex-start;
+}
+
+label.successful_attention {
+    font-size: 2rem;
+    color: green;
+    background-color: #d4edda;  /* Light green background */
+    border: 1px solid #c3e6cb;
+    padding: 20px;  /* Space inside the label */
+    border-radius: 5px;  /* Rounded corners */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    margin: 10px 0 30px;
+    text-align: center;
+    justify-items: center;
+}
+
+

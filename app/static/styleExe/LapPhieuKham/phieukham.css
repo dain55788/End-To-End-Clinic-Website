@@ -1,0 +1,65 @@
+.phieuKham{
+    background-color: #eeeeee;
+    font-size: 1.5rem;
+    padding-top: 100px;
+}
+.examForm{
+    border: 2.5px solid #666666;
+    border-radius: 16px;
+    background-color: #ffffff;
+
+}
+#diagnosis {
+    height: 120px;
+}
+.medicine-box{
+    border: 2px solid #0188df;
+    border-radius: 5px;
+    padding: 10px;
+}
+.medicine-title{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.6rem;
+    font-family: "Nunito", sans-serif;
+    color: #0188df;
+}
+.medicine-change-btn{
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 3rem;
+    background-color: #1ea9dc;
+    color: #eeeeee;
+}
+button.submit-form{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 2.5rem;
+    background-color: #1ea9dc;
+    color: #eeeeee;
+}
+.med-add-btn{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 2.5rem;
+    background-color: #1ea9dc;
+    color: #eeeeee;
+}
+.med-remove-btn{
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 2.5rem;
+    background-color: #1ea9dc;
+    color: #eeeeee;
+}

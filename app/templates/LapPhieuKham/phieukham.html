@@ -1,0 +1,119 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<section class="phieuKham" id="phieuKham">
+    <div class="container p-5 ">
+        <h1 class="text-center pb-md-5">Lập Phiếu Khám</h1>
+        <div class="examForm container p-md-5">
+            <form method="post" action="/phieukham" enctype="multipart/form-data">
+                <div class="row pb-md-2">
+                    <div class="col-sm-2 text-left align-items-center align-content-center">
+                        <label for="docName">Bác Sĩ:</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <!--Tự nạp tên bs từ tk người dùng-->
+                        <input type="text" id="docName" name="docName" class="border" placeholder="Tên Bác Sĩ">
+                    </div>
+                </div>
+                <div class="row pb-md-2">
+                    <div class="col-sm-2 text-left align-items-center align-content-center">
+                        <label for="sdt">SĐT Bệnh Nhân:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="sdt" name="sdt" placeholder="SĐT BỆNH NHÂN">
+                        <!-- Nạp data bệnh nhân dk lich khám ở chỗ này ngay option-->
+                    </div>
+                    <div class="col-sm-2 text-left align-items-center align-content-center">
+                        <label for="dateForm">Ngày Khám:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="date" id="dateForm" name="dateForm" class="border" readonly>
+                    </div>
+                </div>
+
+                <div class="row pb-md-2">
+                    <div class="col-sm-2 text-left align-items-center align-content-center">
+                        <label for="disease-txt">Loại bệnh:</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" id="disease-txt" name="disease-txt" class="border"
+                               placeholder="Nhập loại bệnh">
+                    </div>
+
+                </div>
+
+                <div class="medicine-box container mt-md-5">
+                    <div class="row medicine-title">
+                        <div class=" col-sm-3 text-center  ">Thuốc</div>
+                        <div class=" col-sm-7 text-center  ">Cách dùng</div>
+                        <div class=" col-sm-2 text-center  ">Số lượng</div>
+                    </div>
+                    <div id="med-container">
+                        <!-- Phần tử ban đầu -->
+                        <div class="row med-item pb-sm-2">
+
+                            <div class=" col-sm-3 text-center  ">
+                                <input type="text" name="medicine" list="medicineList">
+                                <!-- Nhập data Thuốc ở chỗ này ngay option-->
+                                <datalist id="medicineList">
+                                    {% for t in thuocs %}
+                                    <option value="{{ t.TenThuoc }}">
+                                        {% endfor %}
+                                </datalist>
+                            </div>
+                            <div class=" col-sm-7 text-center  ">
+                                <input type="text" id="med-instruct" name="med-instruct" class="border"
+                                       placeholder="Cách dùng">
+                            </div>
+                            <div class=" col-sm-2 text-center  ">
+                                <input type="text" id="med-number" name="med-number" class="border"
+                                       placeholder="Số lượng">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <div class="p-2">
+                            <button class="medicine-change-btn justify-content-center" type="button"
+                                    onclick="xoaThuoc()">-
+                            </button>
+                        </div>
+                        <div class="p-2">
+                            <button class="medicine-change-btn justify-content-center" type="button"
+                                    onclick="themThuoc()">+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row-reverse pt-lg-5">
+                    <div class="p-2">
+                        <button type="submit" class="submit-form">Xác nhận</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- font awesome cdn link  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+<!-- custom css file link  -->
+<link rel="stylesheet" href="{{ url_for('static', filename= 'styleExe/MainStyle/mainStyle.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename= 'styleExe/LapPhieuKham/phieukham.css') }}">
+<!--Bootstrap5 file link-->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+<!-- custom js file link  -->
+<script src="{{ url_for('static',filename='/scriptExe/phieukham.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="{{ url_for('static', filename='scriptExe/mainScript.js') }}"></script>
+
+{% endblock  %}

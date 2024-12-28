@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="static/images/clinic.png">
+    <link rel="stylesheet" href="static/styleExe/LoginRegister/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="form-container sign-up-container">
+        <form method="post" action="/register" enctype="multipart/form-data">
+            <h1>Tạo tài khoản</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+            <span>hoặc sử dụng số điện thoại của bạn để đăng ký</span>
+            <div class="hoTen">
+                <input type="text" id="name" name="name" placeholder="Họ và Tên"/>
+                <input type="text" id="username" name="username" placeholder="Tên người dùng"/>
+                <div>
+                    <select class="gender" id="gender" name="gender">
+                        <option value="" disabled selected>Giới tính</option>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                        <option value="other">Khác</option>
+                    </select>
+                </div>
+            </div>
+            {% if err_msg2 %}
+            <label class="attention">{{ err_msg2 }}</label> <!-- err message: empty fields in fname, username, gender-->
+            {% endif %}
+            <input type="text" id="phone" placeholder="Số điện thoại (+84)" name="phone"/> <!-- err message: used phone number-->
+            {% if err_msg4 %}
+            <label class="attention">{{ err_msg4 }}</label>
+            {% endif %}
+            <input type="password" id="password" placeholder="Mật khẩu" name="password"/> <!-- err message: invalid password-->
+            {% if err_msg1 %}
+            <label class="attention">{{ err_msg1 }}</label>
+            {% endif %}
+            <input type="password" id="confirm" placeholder="Xác nhận mật khẩu" name="confirm"/> <!-- err message: wrong confirmation-->
+            {% if err_msg %}
+            <label class="attention">{{ err_msg }} </label>
+            {% endif %}
+            <div class="terms-container">
+                <input type="checkbox" id="accept-terms" name="accept-terms">
+                <p>
+                    Bằng việc nhấn tiếp tục, bạn chấp nhận
+                    <a href="#">Điều khoản sử dụng</a> và
+                    <a href="#">Quyền riêng tư</a> của chúng tôi.
+                </p>
+            </div>
+            {% if err_msg3 %}
+            <label class="attention">{{ err_msg3 }} </label>
+            {% endif %}
+            <p>
+                Bạn đã có tài khoản?
+                <a href="/login" style="color: #2ba0ff; text-decoration: underline; font-weight: bold;">
+                    Đăng nhập tại đây
+                </a>
+            </p>
+            <button>Đăng ký</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_self" href="mainPage.html">Be<span>Strong</span></a>
+    </p>
+</footer>
+</body>
+</html>

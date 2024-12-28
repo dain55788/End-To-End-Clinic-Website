@@ -1,0 +1,49 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<style>
+    .bigg{
+     padding: 1rem;
+    }
+
+    .bigg option{
+     font-size: 1rem;
+    }
+</style>
+
+<form method="post" action="/add-drug">
+    <div class="mt-3 d-flex justify-content-around">
+        <div class="align-item-center mt-5">
+            <select class="bigg">
+                {% for d in drugs %}
+                <option value="{{ d[0] }}">{{ d[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="border border-3 border-info">
+
+            <div class="text-center m-5">
+                <input name="tenthuoc" value="{{drugs[0][0]}}" placeholder="{{drugs[0][0]}}">
+            </div>
+
+            <div class="m-5">
+                <input name="loaithuoc" class="mr-4" value="{{drugs[0][1]}}" placeholder="{{drugs[0][1]}}">
+                <input type="number" min="0" step="1" name="soluong" class="ml-4" value="{{drugs[0][2]}}" placeholder="{{drugs[0][2]}}">
+            </div>
+
+            <div class="m-5">
+                <input name="donvi" class="mr-4" value="{{drugs[0][3]}}" placeholder="{{drugs[0][3]}}">
+                <input type="number" min="0" step="0.1" name="giathuoc" class="ml-4" value="{{drugs[0][4]}}" placeholder="{{drugs[0][4]}}">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mt-3 d-flex justify-content-around">
+        <button value="delete" name="action" class="thongke-btn" type="submit">Xoá</button>
+        <button value="update" name="action" class="thongke-btn p-2" type="submit">Cập Nhật</button>
+        <button value="add" name="action" class="thongke-btn" type="submit">Thêm</button>
+    </div>
+</form>
+<link rel="stylesheet" href="{{ url_for('static', filename= 'styleExe/Admin/stats.css') }}">
+{% endblock %}

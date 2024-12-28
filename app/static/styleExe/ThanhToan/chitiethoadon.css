@@ -1,0 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+body {
+    background-color: blue;
+    font-family: 'Calibri', sans-serif !important;
+    font-size: 15px !important;
+}
+.billDetail{
+    padding-top: 150px;
+}
+
+.mt-100{
+  margin-top: 50px;
+}
+
+.mb-100{
+  margin-bottom: 50px;
+}
+
+.card{
+    border-radius:1px !important;
+}
+
+.card-header{
+
+    background-color:#fff;
+}
+
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.pay-btn{
+    font-size: 15px; !important;
+    border-radius: .25rem;
+}
+.btn-sm, .btn-group-sm>.btn {
+    padding: .25rem .5rem;
+    font-size: .765625rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
